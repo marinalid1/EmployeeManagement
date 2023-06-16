@@ -12,7 +12,7 @@ public class EmployeeManagement {
         employees = new ArrayList<>();
     }
 
-    // addEMployee method takes Employee Type employee
+    // addEmployee method takes Employee Type employee
     public void addEmployee(Employee employee) {
         // adds employee to ArrayList employees
         employees.add(employee);
@@ -38,13 +38,12 @@ public class EmployeeManagement {
             }
         }
 
-        // if employeeFound still equalls false
-        if (employeeFound == false) {
+        // if not employeeFound
+        if (!employeeFound) {
             // print out that employee not found
             System.out.println("Employee not found");
         }
     }       
-
 
     // findEmployeeById takes int id and prints Employee name if it matches id, prints employee not found if no match found
     public void findEmployeeById(int id) {
@@ -60,12 +59,38 @@ public class EmployeeManagement {
                 employeeFound = true;
             }
         }
-        // if employeeFound still equalls false
-        if (employeeFound == false) {
+        // if not employeeFound
+        if (!employeeFound) {
             // print out that employee not found
             System.out.println("Employee not found");
         }
     }
+
+    // updateEmployeeName takes int id and String name and update Employee name
+    public void updateEmployeeName(int id, String name) {
+        // set employeeFound to false
+        boolean employeeFound = false;
+        // for employee in employees
+        for (Employee employee : employees) {
+            // if employee equals id
+            if (employee.getId() == id) {
+                // Update the name of the employee
+                employee.setName(name);
+                // Print update confirmation with the updated values
+                System.out.println("Employee name updated: " + employee.getId() + ", " + employee.getName());
+                // set employeeFound to true
+                employeeFound = true;
+                // break out of loop
+                break;
+            }
+        }
+        // if not employeeFound
+        if (!employeeFound) {
+            // print Employee not found
+            System.out.println("Employee not found");
+        }
+    }
+
 
     // printAll method prints all employees
     public void printAll() {
@@ -94,6 +119,12 @@ public class EmployeeManagement {
 
         // delete employee
         employeeManagement.deleteEmployee(3);
+
+        // delete employee
+        employeeManagement.updateEmployeeName(1, "James");
+
+        // print all employees in employee management
+        employeeManagement.printAll();
     }
 }
 
