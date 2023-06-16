@@ -22,6 +22,12 @@ class Employee {
         return name;
     }
 
+    // setName method takes newName String and set instance name to it
+    public void setName(String newName) {
+        // this.name equals newName
+        this.name = newName;
+    }
+
     // getId takes no parameters and returns int id
     public int getId() {
         // return id
