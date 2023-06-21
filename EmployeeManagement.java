@@ -66,6 +66,7 @@ public class EmployeeManagement {
         }
     }
 
+    /*
     // Needs updating with firstName, lastName etc...
     // updateEmployeeName takes int id and String name and update Employee name
     public void updateEmployeeName(int id, String name) {
@@ -91,6 +92,7 @@ public class EmployeeManagement {
             System.out.println("Employee not found");
         }
     }
+    */
 
 
     // printAll method prints all employees
