@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.text.html.HTMLDocument.Iterator;
+import java.util.Optional;
 
 public class EmployeeManagement {
     // set private employees List
     private List<Employee> employees;
 
+    // EmployeeManagement constructor
     public EmployeeManagement() {
         // EmployeeManagement constructor sets employees equal to new ArrayList
         employees = new ArrayList<>();
@@ -66,6 +66,7 @@ public class EmployeeManagement {
         }
     }
 
+    // Needs updating with firstName, lastName etc...
     // updateEmployeeName takes int id and String name and update Employee name
     public void updateEmployeeName(int id, String name) {
         // set employeeFound to false
@@ -106,10 +107,10 @@ public class EmployeeManagement {
         EmployeeManagement employeeManagement = new EmployeeManagement();
 
         // Adding employees to the list
-        employeeManagement.addEmployee(new Employee("John"));
-        employeeManagement.addEmployee(new Employee("Jane"));
-        employeeManagement.addEmployee(new Employee("Peter"));
-        employeeManagement.addEmployee(new Employee("Sarah"));
+        employeeManagement.addEmployee(new Employee("John", "Smith", "123 main st", "accounting", 1234567890));
+        employeeManagement.addEmployee(new Employee("Jane", "Smith", "123 main st", "sales", 1233219000));
+        employeeManagement.addEmployee(new Employee("Peter", "Johnson","500 Parkway", "logistics",1234567890));
+        employeeManagement.addEmployee(new Employee("Sarah", "Daniels", "1 Circle Drive", "Customer Service", 1231231234));
 
         // print all employees in employee management
         employeeManagement.printAll();
@@ -120,8 +121,8 @@ public class EmployeeManagement {
         // delete employee
         employeeManagement.deleteEmployee(3);
 
-        // delete employee
-        employeeManagement.updateEmployeeName(1, "James");
+        // update employee
+        //employeeManagement.updateEmployeeName(1, "James");
 
         // print all employees in employee management
         employeeManagement.printAll();
