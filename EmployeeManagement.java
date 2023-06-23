@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.time.LocalDate;
+
 
 public class EmployeeManagement {
     // set private employees List
@@ -104,15 +105,27 @@ public class EmployeeManagement {
         }
     }
 
+    // sortByMiniumSalary takes one parameter int salary and returns nothing
+    public void sortByMinimumSalary(int salary) {
+        // for employee in employees
+        for (Employee employee: employees) {
+            // if employee salary is equal to or greater than salary
+            if (employee.getSalary() >= salary) {
+                // print out employee
+                System.out.println(employee);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         // create new instance of employeeManagement
         EmployeeManagement employeeManagement = new EmployeeManagement();
 
         // Adding employees to the list
-        employeeManagement.addEmployee(new Employee("John", "Smith", "123 main st", "accounting", 1234567890));
-        employeeManagement.addEmployee(new Employee("Jane", "Smith", "123 main st", "sales", 1233219000));
-        employeeManagement.addEmployee(new Employee("Peter", "Johnson","500 Parkway", "logistics",1234567890));
-        employeeManagement.addEmployee(new Employee("Sarah", "Daniels", "1 Circle Drive", "Customer Service", 1231231234));
+        employeeManagement.addEmployee(new Employee("John", "Smith", LocalDate.of(1990, 1, 1), "123 main st", "accounting", 1234567890, 50000));
+        employeeManagement.addEmployee(new Employee("Jane", "Smith", LocalDate.of(1993, 12, 24), "123 main st", "sales", 1233219000, 70000));
+        employeeManagement.addEmployee(new Employee("Peter", "Johnson",LocalDate.of(1979,6, 16), "500 Parkway", "logistics",1234567890, 60000));
+        employeeManagement.addEmployee(new Employee("Sarah", "Daniels", LocalDate.of(1999, 11, 11) ,"1 Circle Drive", "Customer Service", 1231231234, 40000));
 
         // print all employees in employee management
         employeeManagement.printAll();
@@ -123,11 +136,14 @@ public class EmployeeManagement {
         // delete employee
         employeeManagement.deleteEmployee(3);
 
+        // sort byMinimumSalary
+        employeeManagement.sortByMinimumSalary(50000);
+
         // update employee
         //employeeManagement.updateEmployeeName(1, "James");
 
         // print all employees in employee management
-        employeeManagement.printAll();
+        //employeeManagement.printAll();
     }
 }
 
