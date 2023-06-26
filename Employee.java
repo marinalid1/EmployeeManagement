@@ -55,10 +55,22 @@ class Employee {
         return salary;
     }
 
+    // getDob method takes no parameters and returns LocalDate dob
+    public LocalDate getDob() {
+        /// return dob
+        return dob;
+    }
+
     // setName method takes newFirstName and newLastName Strings and set firstName and lastName instances to it
     public void setName(String newFirstName, String newLastName) {
         // this.name equals newName
         this.firstName = newFirstName;
+        // this.name equals newName
+        this.lastName = newLastName;
+    }
+
+    // setLastName method takes newLastName String and sets lastName instances to it
+    public void setLastName(String newLastName) {
         // this.name equals newName
         this.lastName = newLastName;
     }
@@ -73,7 +85,7 @@ class Employee {
     @Override
     // toString takes no parameters and returns String
     public String toString() {
-        // retrun Stirng with employee id, firstName, lastName, address, department, phone, salary
-        return "Employee{" + "id=" + id + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", dob='" + dob + '\'' + ", address='" + address + '\'' + ", department='" + department + '\'' + ", phoneNumber='" + phoneNumber +'\'' + ", salary='" + salary +'\'' +'}';
+        // retrun Stirng with employee id, firstName, lastName, dob, address, department, phone, salary
+        return "Employee{" + "id=" + id + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", dob='" + dob + '\'' + '\'' + ", address='" + address + '\'' + ", department='" + department + '\'' + ", phoneNumber='" + phoneNumber +'\'' + ", salary='" + salary +'\'' +'}';
     }
 }
