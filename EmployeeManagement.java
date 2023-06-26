@@ -67,10 +67,8 @@ public class EmployeeManagement {
         }
     }
 
-    /*
-    // Needs updating with firstName, lastName etc...
     // updateEmployeeName takes int id and String name and update Employee name
-    public void updateEmployeeName(int id, String name) {
+    public void updateEmployeeLastName(int id, String lastName) {
         // set employeeFound to false
         boolean employeeFound = false;
         // for employee in employees
@@ -78,7 +76,7 @@ public class EmployeeManagement {
             // if employee equals id
             if (employee.getId() == id) {
                 // Update the name of the employee
-                employee.setName(name);
+                employee.setLastName(lastName);
                 // Print update confirmation with the updated values
                 System.out.println("Employee name updated: " + employee.getId() + ", " + employee.getName());
                 // set employeeFound to true
@@ -93,8 +91,6 @@ public class EmployeeManagement {
             System.out.println("Employee not found");
         }
     }
-    */
-
 
     // printAll method prints all employees
     public void printAll() {
@@ -105,12 +101,24 @@ public class EmployeeManagement {
         }
     }
 
-    // sortByMiniumSalary takes one parameter int salary and returns nothing
-    public void sortByMinimumSalary(int salary) {
+    // filterByMiniumSalary takes one parameter int salary and returns nothing
+    public void filterByMinimumSalary(int salary) {
         // for employee in employees
         for (Employee employee: employees) {
             // if employee salary is equal to or greater than salary
             if (employee.getSalary() >= salary) {
+                // print out employee
+                System.out.println(employee);
+            }
+        }
+    }
+
+    // filterByMinimumDob takes one parameter LocalDate dob and returns nothing
+    public void filterByMinimumDob(LocalDate dob) {
+        // for employee in employees
+        for (Employee employee: employees) {
+            // if employee's date of birth is equal to or after the minimum date of birth
+            if (!employee.getDob().isBefore(dob)) {
                 // print out employee
                 System.out.println(employee);
             }
@@ -137,13 +145,13 @@ public class EmployeeManagement {
         employeeManagement.deleteEmployee(3);
 
         // sort byMinimumSalary
-        employeeManagement.sortByMinimumSalary(50000);
+        employeeManagement.filterByMinimumSalary(50000);
 
         // update employee
-        //employeeManagement.updateEmployeeName(1, "James");
+        employeeManagement.updateEmployeeLastName(4, "Parker");
 
-        // print all employees in employee management
-        //employeeManagement.printAll();
+        // filter by age
+        employeeManagement.filterByMinimumDob(LocalDate.of(1999,1, 1));
     }
 }
 
